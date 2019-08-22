@@ -2,48 +2,59 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
 
-class ViewRecipes extends Component {
+class Main extends Component {
     /**
-     * A Class to view all avaliable recipes. Users can select one of the 
-     * recipes to view the ingredients and the steps required. 
+     * A Class to display all options to search teams, roaster and players  
      */
 
     constructor() {
         super();
         this.state = {
-            search: ""
+            searchPlayer: "",
+            searchRoster: ""
         };
+    }
+
+    updateRosterSearch(event) {
+        this.setState({ searchRoster: event.target.value.substring(0, 20) });
+    }
+
+    updatePlayerSearch(event) {
+        this.setState({ searchPlayer: event.target.value.substring(0, 20) });
     }
 
 
     render() {
         return (
             <div className="MainPage">
-                <img alt="logo" src="https://www.mlbstatic.com/team-logos/141.svg"/> 
+                <img alt="logo" src="https://www.mlbstatic.com/team-logos/141.svg" />
 
                 <div class="row Selection">
                     <div class="col-4">
-                        <div class="list-group" id="list-tab" role="tablist" style={{width: '350%'}}>
-                            <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">Home</a>
+                        <div class="list-group" id="list-tab" role="tablist" style={{ width: '350%' }}>
+                            <a class="list-group-item list-group-item-action active" href="home" >Home</a>
                             <Link to='/teams'>
-                                <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list" href="#list-profile" role="tab" aria-controls="teams">Teams</a>
+                                <a class="list-group-item list-group-item-action" href="teams">Teams</a>
                             </Link>
-                            <Link to='/rosters'>
-                                <a class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="list" href="#list-messages" role="tab" aria-controls="rosters">Rosters</a>
-                            </Link>
-                            <Link to='/players'>
-                            <   a class="list-group-item list-group-item-action" id="list-settings-list" data-toggle="list" href="#list-settings" role="tab" aria-controls="players">Players</a>
-                            </Link>
+                            <div class="input-group mb-3">
+                                <Link to={'/rosters/' + this.state.searchRoster}>
+                                    <div class="input-group-append">
+                                        <button class="btn btn-outline-secondary" type="button">Search Rosters</button>
+                                    </div>
+                                </Link>
+                                <input type="text" class="form-control" placeholder="Team Name" value={this.state.searchRoster} onChange={this.updateRosterSearch.bind(this)} />
+                            </div>
+                            <div class="input-group mb-3">
+                                <Link to={'/players/' + this.state.searchPlayer}>
+                                    <div class="input-group-append">
+                                        <button class="btn btn-outline-secondary" type="button">Search Players</button>
+                                    </div>
+                                </Link>
+                                <input type="text" class="form-control" placeholder="Player Name" value={this.state.searchPlayer} onChange={this.updatePlayerSearch.bind(this)} />
+                            </div>
+
                         </div>
                     </div>
-                    {/* <div class="col-8">
-                        <div class="tab-content" id="nav-tabContent">
-                        <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list">...</div>
-                        <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">...</div>
-                        <div class="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">...</div>
-                        <div class="tab-pane fade" id="list-settings" role="tabpanel" aria-labelledby="list-settings-list">...</div>
-                        </div>
-                    </div> */}
                 </div>
             </div>
         );
@@ -51,4 +62,4 @@ class ViewRecipes extends Component {
 }
 
 
-export default ViewRecipes;
+export default Main;

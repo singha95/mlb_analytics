@@ -19,23 +19,16 @@ function App() {
         <NavBar />
         <div style={{ marginTop: "65px" }}>
           <Switch>
-            <Route exact path="/">
-              <Main />
-            </Route>
-            <Route path={"/players"}>
-              <Players />
-            </Route>
-            <Route path={"/teams"}>
-              <Teams/>
-            </Route>
-            <Route path={"/rosters"}>
-              <Rosters />
-            </Route>
+            <Route exact path="/" component={Main}/>
+            <Route path={"/player"} component={Players}/>
+            <Route path={"/teams"} component={Teams}/>
+            <Route path={"/rosters"} component={Rosters}/>
           </Switch>
         </div>
       </div>
     </Router>
   );
 }
+
 
 export default App;
