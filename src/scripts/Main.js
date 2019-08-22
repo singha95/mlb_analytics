@@ -9,9 +9,15 @@ class Main extends Component {
 
     constructor() {
         super();
+        var teamIds = [ 133, 134, 135, 136, 137, 138, 139, 
+            140, 141, 142, 143, 144, 145, 146, 147, 158, 108, 
+            109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 
+            119, 120, 121 ] 
+
         this.state = {
             searchPlayer: "",
-            searchRoster: ""
+            searchRoster: "",
+            logo: teamIds[Math.floor(Math.random() * 30)]
         };
     }
 
@@ -27,7 +33,7 @@ class Main extends Component {
     render() {
         return (
             <div className="MainPage">
-                <img alt="logo" src="https://www.mlbstatic.com/team-logos/141.svg" />
+                <img alt="logo" src={"https://www.mlbstatic.com/team-logos/" + this.state.logo + ".svg" }/>
 
                 <div class="row Selection">
                     <div class="col-4">
@@ -42,7 +48,8 @@ class Main extends Component {
                                         <button class="btn btn-outline-secondary" type="button">Search Rosters</button>
                                     </div>
                                 </Link>
-                                <input type="text" class="form-control" placeholder="Team Name" value={this.state.searchRoster} onChange={this.updateRosterSearch.bind(this)} />
+                                <input type="text" class="form-control" placeholder="Team Name" 
+                                    value={this.state.searchRoster} onChange={this.updateRosterSearch.bind(this)} />
                             </div>
                             <div class="input-group mb-3">
                                 <Link to={'/players/' + this.state.searchPlayer}>
@@ -50,7 +57,8 @@ class Main extends Component {
                                         <button class="btn btn-outline-secondary" type="button">Search Players</button>
                                     </div>
                                 </Link>
-                                <input type="text" class="form-control" placeholder="Player Name" value={this.state.searchPlayer} onChange={this.updatePlayerSearch.bind(this)} />
+                                <input type="text" class="form-control" placeholder="Player Name" 
+                                    value={this.state.searchPlayer} onChange={this.updatePlayerSearch.bind(this)} />
                             </div>
 
                         </div>

@@ -6,6 +6,7 @@ class Teams extends Component {
 
     constructor() {
         super();
+
         this.state = {
             search: "",
             teams: [],
@@ -28,6 +29,7 @@ class Teams extends Component {
                 //add the jsonData to the arrays of teams and details 
                 if (jsonData != null) {
                     for (let i = 0; i < jsonData.teams.length; i++) {
+                        console.log(jsonData.teams[i]['id']);
                         var temp = {
                             id: jsonData.teams[i]['id'],
                             name: jsonData.teams[i]['name'],
@@ -58,7 +60,8 @@ class Teams extends Component {
         return (
             <div>
                 <div class="input-group mb-3">
-                    <input type="text" class="form-control" placeholder="Enter Team Name..." value={this.state.search} onChange={this.updateSearch.bind(this)} />
+                    <input type="text" class="form-control" placeholder="Enter Team Name..." value={this.state.search} 
+                        onChange={this.updateSearch.bind(this)} />
                 </div>
                 <div className="container">
                     <div className="row">
@@ -66,7 +69,8 @@ class Teams extends Component {
                             return <Link to={'/rosters/' + team.id} className="active item">
                                 <div className="card" style={{ width: "150px" }}>
                                     <div className="card-body">
-                                        <img alt={team.link} src={"https://www.mlbstatic.com/team-logos/" + team.id + ".svg"} />
+                                        <img alt={team.link} 
+                                            src={"https://www.mlbstatic.com/team-logos/" + team.id + ".svg"} />
                                         <p className="card-text">{team.name}</p>
                                     </div>
                                 </div>
