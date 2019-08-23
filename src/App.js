@@ -17,7 +17,7 @@ function App() {
     <Router>
       <div>
         <NavBar />
-        <div style={{ marginTop: "65px" }}>
+        <div style={{ marginTop: "56px" }}>
           <Switch>
             <Route exact path="/" component={Main}/>
             <Route path={"/player"} component={Players}/>

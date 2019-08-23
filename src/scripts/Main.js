@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-
+import update from 'immutability-helper';
 
 class Main extends Component {
     /**
@@ -17,16 +17,43 @@ class Main extends Component {
         this.state = {
             searchPlayer: "",
             searchRoster: "",
-            logo: teamIds[Math.floor(Math.random() * 30)]
+            logo: teamIds[Math.floor(Math.random() * 30)], 
+            teams: new Map(),
+            players: new Map()
         };
     }
 
-    updateRosterSearch(event) {
-        this.setState({ searchRoster: event.target.value.substring(0, 20) });
+    updateSearch = e => {
+        const {name, value} = e.target;
+    
+        this.setState(() => ({
+          [name]: value
+        }))
     }
 
-    updatePlayerSearch(event) {
-        this.setState({ searchPlayer: event.target.value.substring(0, 20) });
+    componentDidMount() {
+        var url = "https://statsapi.mlb.com/api/v1/teams?sportId=1"
+
+        //Use fetch to get the spreadsheet data
+        fetch(url)
+            .then(response => response.json())
+            .then(jsonData => {
+                //add the jsonData to the arrays of teams and details 
+                if (jsonData != null && jsonData.teams != null) {
+                    for (let i = 0; i < jsonData.teams.length; i++) {
+                        var temp = {
+                            id: jsonData.teams[i]['id'],
+                            name: jsonData.teams[i]['name']
+                        };
+                        this.setState({
+                            teams: update(this.state.teams,  {$add : [ [temp.name, temp.id ] ]  })
+                        });
+                    }
+                    console.log(this.state.teams[0]);
+                    console.log(this.state.teams);
+                }
+    
+            });
     }
 
 
@@ -38,7 +65,9 @@ class Main extends Component {
                 <div class="row Selection">
                     <div class="col-4">
                         <div class="list-group" id="list-tab" role="tablist" style={{ width: '350%' }}>
-                            <a class="list-group-item list-group-item-action active" href="home" >Home</a>
+                            <a class="list-group-item list-group-item-action active" href="/" >
+                                Team and Player Stats Application
+                            </a>
                             <Link to='/teams'>
                                 <a class="list-group-item list-group-item-action" href="teams">Teams</a>
                             </Link>
@@ -49,16 +78,17 @@ class Main extends Component {
                                     </div>
                                 </Link>
                                 <input type="text" class="form-control" placeholder="Team Name" 
-                                    value={this.state.searchRoster} onChange={this.updateRosterSearch.bind(this)} />
+                                    name="searchRoster" value={this.state.searchRoster} onChange={this.updateSearch} />
                             </div>
                             <div class="input-group mb-3">
-                                <Link to={'/players/' + this.state.searchPlayer}>
+                                <Link to={'/player/' + this.state.searchPlayer}>
                                     <div class="input-group-append">
                                         <button class="btn btn-outline-secondary" type="button">Search Players</button>
                                     </div>
                                 </Link>
-                                <input type="text" class="form-control" placeholder="Player Name" 
-                                    value={this.state.searchPlayer} onChange={this.updatePlayerSearch.bind(this)} />
+                                <input type="text" class="form-control" placeholder="Player ID" 
+                                    name="searchPlayer" value={this.state.searchPlayer} 
+                                    onChange={this.updateSearch} />
                             </div>
 
                         </div>

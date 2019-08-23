@@ -15,16 +15,14 @@ class Rosters extends Component {
     }
 
     componentDidMount() {
-        var url = "https://statsapi.mlb.com/api/v1/teams/" + this.state.teamId + 
-        "/roster"
-
+        var url = "https://statsapi.mlb.com/api/v1/teams/" + this.state.teamId + "/roster"
 
         //Use fetch to get the spreadsheet data
         fetch(url)
             .then(response => response.json())
             .then(jsonData => {
                 //add the jsonData to the arrays of teams and details 
-                if (jsonData != null) {
+                if (jsonData != null && jsonData.roster != null) {
                     for (let i = 0; i < jsonData.roster.length; i++) {
                         var temp = {
                             id: jsonData.roster[i].person['id'],
@@ -34,7 +32,6 @@ class Rosters extends Component {
                         this.state.players.push(temp);
                     }
                 }
-                console.log(this.state.players);
                 setTimeout(() => this.setState({ isLoading: false }), 500);
             });
     }

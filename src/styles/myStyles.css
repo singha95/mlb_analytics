@@ -1,9 +1,13 @@
 div.MainPage{  
     margin-left: 0px;
-    margin-top: 10px; 
+    margin-top: 0px; 
     overflow-y: scroll;
     height: 90vh;
-    background-color: rgb(0, 51, 153); 
+    background-image: url('rogers1.jpg');
+    background-color: white;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 30% 30%;
 }
 div.Selection { 
     width: 50% ; 

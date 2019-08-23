@@ -27,7 +27,7 @@ class Teams extends Component {
             .then(response => response.json())
             .then(jsonData => {
                 //add the jsonData to the arrays of teams and details 
-                if (jsonData != null) {
+                if (jsonData != null && jsonData.teams != null) {
                     for (let i = 0; i < jsonData.teams.length; i++) {
                         console.log(jsonData.teams[i]['id']);
                         var temp = {
@@ -67,7 +67,7 @@ class Teams extends Component {
                     <div className="row">
                         {teamsList.map((team) => {
                             return <Link to={'/rosters/' + team.id} className="active item">
-                                <div className="card" style={{ width: "150px" }}>
+                                <div className="card" style={{ width: "150px", height: "250px"}}>
                                     <div className="card-body">
                                         <img alt={team.link} 
                                             src={"https://www.mlbstatic.com/team-logos/" + team.id + ".svg"} />
