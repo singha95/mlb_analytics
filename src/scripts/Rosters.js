@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import '../styles/cards.css';
 
 
 class Rosters extends Component {
@@ -10,7 +11,8 @@ class Rosters extends Component {
         this.state = {
             search: "",
             players: [], 
-            teamId: this.props.location.pathname.split("/")[2]
+            teamId: this.props.location.pathname.split("/")[2],
+            isLoading: true
         };
     }
 
@@ -32,8 +34,8 @@ class Rosters extends Component {
                         this.state.players.push(temp);
                     }
                 }
-                setTimeout(() => this.setState({ isLoading: false }), 500);
             });
+            setTimeout(() => this.setState({ isLoading: false }), 500); 
     }
 
     render() {
@@ -42,21 +44,31 @@ class Rosters extends Component {
                 return player.name.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1;
             }
         );
+        if (this.state.isLoading) {
+            return (
+                <div class="d-flex align-items-center">
+                    <strong>Loading...</strong>
+                    <div class="spinner-border ml-auto" role="status" aria-hidden="true"></div>
+                </div>
+            )
+        }
+
         return (
-            <div>
+            <div style={{backgroundColor: "black"}}>
                 <div className="container">
-                    <div className="row">
+                    <div className="row myCards">
                         {rosterList.map((player) => {
-                            return <Link to={'/player/' + player.id} className="active item">
-                                <div className="card">
+                            return <div className="card myCard">
+                                <Link to={'/player/' + player.id} className="active item">
                                     <div className="card-body">
                                         <img alt={player.id} 
                                             src={"https://securea.mlb.com/mlb/images/players/head_shot/" + player.id + 
                                             ".jpg"} />
                                         <p className="card-text">{player.name}</p>
                                     </div>
-                                </div>
-                            </Link>
+                                
+                                </Link>
+                            </div>
                         })}
                     </div>
                 </div>

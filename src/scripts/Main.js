@@ -49,10 +49,7 @@ class Main extends Component {
                             teams: update(this.state.teams,  {$add : [ [temp.name, temp.id ] ]  })
                         });
                     }
-                    console.log(this.state.teams[0]);
-                    console.log(this.state.teams);
                 }
-    
             });
     }
 
