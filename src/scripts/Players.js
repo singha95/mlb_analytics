@@ -42,12 +42,14 @@ class Players extends Component {
 
     render() {
         return (
-            <div>
-                <img alt={this.state.playerId} 
-                    src={"https://securea.mlb.com/mlb/images/players/head_shot/" + this.state.playerId + ".jpg"}
-                    style={{height: '100%', left: '-200px', position: 'fixed'}} /> 
-                <div style={{left: '300px', heigth: "100%", width:"calc(100% - 400px)", position: "fixed"}}>
-                    This is the Players Page {this.state.playerId}
+            <div className="container" style={{margin: "0px", height: "100%"}}>
+                <div className="row" style={{}}>
+                    <img alt={this.state.playerId} 
+                        src={"https://securea.mlb.com/mlb/images/players/head_shot/" + this.state.playerId + ".jpg"}
+                        className="playerProfile"/> 
+                    <div className="playerDetails">
+                        This is the Players Page {this.state.playerId}
+                    </div>
                 </div>
                 
             </div>

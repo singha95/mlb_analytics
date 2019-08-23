@@ -13,7 +13,7 @@ class NavBar extends Component {
 
     render() {
         return (
-            <nav class="navbar navbar-expand-lg fixed-top navbar-dark" style={{backgroundColor: "#00003f"}}>
+            <nav class="navbar navbar-expand fixed-top navbar-dark" style={{backgroundColor: "#00003f"}}>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
                         <li class={"nav-item active"}>

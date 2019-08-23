@@ -69,7 +69,7 @@ class Main extends Component {
                                 <a class="list-group-item list-group-item-action" href="teams">Teams</a>
                             </Link>
                             <div class="input-group mb-3">
-                                <Link to={'/rosters/' + this.state.searchRoster}>
+                                <Link to={'/rosters/' + this.state.teams.get(this.state.searchRoster)}>
                                     <div class="input-group-append">
                                         <button class="btn btn-outline-secondary" type="button">Search Rosters</button>
                                     </div>
