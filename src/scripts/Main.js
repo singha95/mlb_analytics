@@ -23,7 +23,7 @@ class Main extends Component {
         };
     }
 
-    updateSearch = e => {
+    updateSearch = (e) => {
         const {name, value} = e.target;
     
         this.setState(() => ({

@@ -66,7 +66,6 @@ class Rosters extends Component {
                                             ".jpg"} />
                                         <p className="card-text">{player.name}</p>
                                     </div>
-                                
                                 </Link>
                             </div>
                         })}
