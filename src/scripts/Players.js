@@ -13,7 +13,8 @@ class Players extends Component {
     }
 
     componentDidMount() {
-        var url = "https://statsapi.mlb.com/api/v1/people/" + this.state.playerId 
+        var url = "https://statsapi.mlb.com/api/v1/people/" + this.state.playerId + 
+            "?hydrate=stats(group=[hitting,pitching,fielding],type=[yearByYear])"; 
 
         //Use fetch to get the spreadsheet data
         fetch(url)
