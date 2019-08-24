@@ -58,7 +58,7 @@ class Rosters extends Component {
         }
 
         return (
-            <div style={{ backgroundColor: "black", height: "100vh", position:"relative"}}>
+            <div style={{ backgroundColor: "black", height: "100%", minHeight:"100vh", position:"relative"}}>
                 <div class="input-group mb-3">
                     <input type="text" class="form-control" placeholder="Enter Team Name..." value={this.state.search}
                         onChange={this.updateSearch.bind(this)} />
