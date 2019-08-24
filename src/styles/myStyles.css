@@ -1,8 +1,10 @@
 div.MainPage{  
     margin-left: 0px;
     margin-top: 0px; 
-    overflow-y: scroll;
-    height: 90vh;
+    overflow-y: hidden;
+    height: calc(100% - 56px);
+    width: 100%;
+    position: absolute;
     background-image: url('rogers1.jpg');
     background-color: white;
     background-repeat: no-repeat;
