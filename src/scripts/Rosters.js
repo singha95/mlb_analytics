@@ -10,10 +10,14 @@ class Rosters extends Component {
         super(props);
         this.state = {
             search: "",
-            players: [], 
+            players: [],
             teamId: this.props.location.pathname.split("/")[2],
             isLoading: true
         };
+    }
+
+    updateSearch(event) {
+        this.setState({ search: event.target.value.substring(0, 20) });
     }
 
     componentDidMount() {
@@ -35,7 +39,7 @@ class Rosters extends Component {
                     }
                 }
             });
-            setTimeout(() => this.setState({ isLoading: false }), 500); 
+        setTimeout(() => this.setState({ isLoading: false }), 500);
     }
 
     render() {
@@ -54,16 +58,20 @@ class Rosters extends Component {
         }
 
         return (
-            <div style={{backgroundColor: "black"}}>
+            <div style={{ backgroundColor: "black", height: "100vh", position:"relative"}}>
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="Enter Team Name..." value={this.state.search}
+                        onChange={this.updateSearch.bind(this)} />
+                </div>
                 <div className="container">
                     <div className="row myCards">
                         {rosterList.map((player) => {
                             return <div className="card myCard">
                                 <Link to={'/player/' + player.id} className="active item">
                                     <div className="card-body">
-                                        <img alt={player.id} 
-                                            src={"https://securea.mlb.com/mlb/images/players/head_shot/" + player.id + 
-                                            ".jpg"} />
+                                        <img alt={player.id}
+                                            src={"https://securea.mlb.com/mlb/images/players/head_shot/" + player.id +
+                                                ".jpg"} />
                                         <p className="card-text">{player.name}</p>
                                     </div>
                                 </Link>
