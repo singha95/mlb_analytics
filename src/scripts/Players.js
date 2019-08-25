@@ -23,16 +23,13 @@ class Players extends Component {
                 //add the jsonData to the arrays of teams and details 
                 if (jsonData != null && jsonData.people != null) {
                     var temp = {
-                        id: jsonData.people[0]['id'],
-                        name: jsonData.people[0]['fullName'],
-                        link: jsonData.people[0]['link'],
-                        primaryNumber: jsonData.people[0]['primaryNumber'],
-                        age: jsonData.people[0]['currentAge'],
-                        birthday: jsonData.people[0]['birthDate'],
-                        birthCountry: jsonData.people[0]['birthCountry'],
-                        birthCity: jsonData.people[0]['birthCity'],
-                        height : jsonData.people[0]['height'],
-                        weight : jsonData.people[0]['weight']
+                        Id: jsonData.people[0]['id'],
+                        Name: jsonData.people[0]['fullName'],
+                        Number: jsonData.people[0]['primaryNumber'],
+                        Age: jsonData.people[0]['currentAge'],
+                        "Birth Country": jsonData.people[0]['birthCountry'],
+                        Height: jsonData.people[0]['height'],
+                        Weight: jsonData.people[0]['weight']
                     };
                     this.setState({ player: temp });
                 }
@@ -51,36 +48,14 @@ class Players extends Component {
                             src={"https://securea.mlb.com/mlb/images/players/head_shot/" + this.state.playerId + ".jpg"}
                             className="playerProfile" />
                         <div className="playerDetails">
-                            <table class="table">
+                            <table className="table">
                                 <tbody>
-                                    <tr>
-                                        <th>ID</th>
-                                        <td>{this.state.playerId}</td>
-                                    </tr>
-                                    <tr>
-                                        <th>Full Name</th>
-                                        <td>{this.state.player.name}</td>
-                                    </tr>
-                                    <tr>
-                                        <th>Number</th>
-                                        <td>{this.state.player.primaryNumber}</td>
-                                    </tr>
-                                    <tr>
-                                        <th>Age</th>
-                                        <td>{this.state.player.age}</td>
-                                    </tr>
-                                    <tr>
-                                        <th>Origin</th>
-                                        <td>{this.state.player.birthCountry}</td>
-                                    </tr>
-                                    <tr>
-                                        <th>Height</th>
-                                        <td>{this.state.player.height}</td>
-                                    </tr>
-                                    <tr>
-                                        <th>Weight</th>
-                                        <td>{this.state.player.weight}</td>
-                                    </tr>
+                                    {Object.keys(this.state.player).map((key) => {
+                                        return <tr key={key}>
+                                            <th>{key}</th>
+                                            <td>{this.state.player[key]}</td>
+                                        </tr>
+                                    })}
                                 </tbody>
                             </table>
                         </div>

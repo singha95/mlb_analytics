@@ -50,23 +50,23 @@ class Rosters extends Component {
         );
         if (this.state.isLoading) {
             return (
-                <div class="d-flex align-items-center">
+                <div className="d-flex align-items-center">
                     <strong>Loading...</strong>
-                    <div class="spinner-border ml-auto" role="status" aria-hidden="true"></div>
+                    <div className="spinner-border ml-auto" role="status" aria-hidden="true"></div>
                 </div>
             )
         }
 
         return (
             <div className="Background" style={{position:"relative"}}>
-                <div class="input-group mb-3">
-                    <input type="text" class="form-control" placeholder="Enter Team Name..." value={this.state.search}
+                <div className="input-group mb-3">
+                    <input type="text" className="form-control" placeholder="Enter Playrr Name..." value={this.state.search}
                         onChange={this.updateSearch.bind(this)} />
                 </div>
                 <div className="container">
                     <div className="row myCards">
                         {rosterList.map((player) => {
-                            return <div className="card myCard">
+                            return <div key={player.id} className="card myCard">
                                 <Link to={'/player/' + player.id} className="active item">
                                     <div className="card-body">
                                         <img alt={player.id}

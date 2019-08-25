@@ -13,12 +13,17 @@ class NavBar extends Component {
 
     render() {
         return (
-            <nav class="navbar navbar-expand fixed-top navbar-dark" style={{backgroundColor: "#00003f"}}>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav">
-                        <li class={"nav-item active"}>
-                            <Link to="/">
-                                <a class="nav-link" href="#Home">Home <span class="sr-only">(current)</span></a>
+            <nav className="navbar navbar-expand fixed-top navbar-dark" style={{backgroundColor: "#00003f"}}>
+                <div className="collapse navbar-collapse" id="navbarNav">
+                    <ul className="navbar-nav">
+                        <li className={"nav-item"}>
+                            <Link className="nav-link" to="/">
+                                Home 
+                            </Link>
+                        </li>
+                        <li className={"nav-item"}>
+                            <Link className="nav-link" to="/teams">
+                               Teams 
                             </Link>
                         </li>
                     </ul>
