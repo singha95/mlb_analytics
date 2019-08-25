@@ -30,7 +30,9 @@ class Players extends Component {
                         age: jsonData.people[0]['currentAge'],
                         birthday: jsonData.people[0]['birthDate'],
                         birthCountry: jsonData.people[0]['birthCountry'],
-                        birthCity: jsonData.people[0]['birthCity']
+                        birthCity: jsonData.people[0]['birthCity'],
+                        height : jsonData.people[0]['height'],
+                        weight : jsonData.people[0]['weight']
                     };
                     this.setState({ player: temp });
                 }
@@ -42,41 +44,42 @@ class Players extends Component {
 
     render() {
         return (
-            <div style={{ backgroundColor: "rgb(169,169,169)", height:"cacl(200vh - 36px)"}}>
+            <div style={{ backgroundColor: "white", height: "100%", minHeight: "100vh" }}>
                 <div className="container" style={{ margin: "0px", height: "100%" }}>
                     <div className="row" style={{}}>
                         <img alt={this.state.playerId}
                             src={"https://securea.mlb.com/mlb/images/players/head_shot/" + this.state.playerId + ".jpg"}
                             className="playerProfile" />
                         <div className="playerDetails">
-                            This is the Players Page {this.state.playerId}
-                            <table class="table table-dark">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">#</th>
-                                        <th scope="col">First</th>
-                                        <th scope="col">Last</th>
-                                        <th scope="col">Handle</th>
-                                    </tr>
-                                </thead>
+                            <table class="table">
                                 <tbody>
                                     <tr>
-                                        <th scope="row">1</th>
-                                        <td>Mark</td>
-                                        <td>Otto</td>
-                                        <td>@mdo</td>
+                                        <th>ID</th>
+                                        <td>{this.state.playerId}</td>
                                     </tr>
                                     <tr>
-                                        <th scope="row">2</th>
-                                        <td>Jacob</td>
-                                        <td>Thornton</td>
-                                        <td>@fat</td>
+                                        <th>Full Name</th>
+                                        <td>{this.state.player.name}</td>
                                     </tr>
                                     <tr>
-                                        <th scope="row">3</th>
-                                        <td>Larry</td>
-                                        <td>the Bird</td>
-                                        <td>@twitter</td>
+                                        <th>Number</th>
+                                        <td>{this.state.player.primaryNumber}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Age</th>
+                                        <td>{this.state.player.age}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Origin</th>
+                                        <td>{this.state.player.birthCountry}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Height</th>
+                                        <td>{this.state.player.height}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Weight</th>
+                                        <td>{this.state.player.weight}</td>
                                     </tr>
                                 </tbody>
                             </table>

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/cards.css';
-import background from "../styles/2753315.jpg";
 
 
 class Rosters extends Component {

@@ -81,7 +81,6 @@ class Main extends Component {
                                     name="searchPlayer" value={this.state.searchPlayer} 
                                     onChange={this.updateSearch} />
                             </div>
-
                         </div>
                     </div>
                 </div>
