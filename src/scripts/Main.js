@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import update from 'immutability-helper';
+import mlblogo from "../styles/mlb.png";
 
 class Main extends Component {
     /**
@@ -9,15 +10,9 @@ class Main extends Component {
 
     constructor() {
         super();
-        var teamIds = [ 133, 134, 135, 136, 137, 138, 139, 
-            140, 141, 142, 143, 144, 145, 146, 147, 158, 108, 
-            109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 
-            119, 120, 121 ] 
-
         this.state = {
             searchPlayer: "",
             searchRoster: "",
-            logo: teamIds[Math.floor(Math.random() * 30)], 
             teams: new Map(),
             players: new Map()
         };
@@ -57,14 +52,13 @@ class Main extends Component {
     render() {
         return (
             <div className="MainPage">
-                <img alt="logo" src={"https://www.mlbstatic.com/team-logos/" + this.state.logo + ".svg" }/>
-
+                <img alt="logo" src={mlblogo}  style={{margin: "0px", maxWidth: "300px", height:"auto"}}/>
                 <div class="row Selection">
                     <div class="col-4">
                         <div class="list-group" id="list-tab" role="tablist" style={{ width: '350%' }}>
-                            <a class="list-group-item list-group-item-action active" href="/" >
+                            <h8 class="list-group-item list-group-item-action active" style={{textAlign: "center"}}>
                                 Team and Player Stats Application
-                            </a>
+                            </h8>
                             <Link to='/teams'>
                                 <a class="list-group-item list-group-item-action" href="teams">Teams</a>
                             </Link>

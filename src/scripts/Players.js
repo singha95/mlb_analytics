@@ -21,7 +21,7 @@ class Players extends Component {
             .then(response => response.json())
             .then(jsonData => {
                 //add the jsonData to the arrays of teams and details 
-                if (jsonData != null) {
+                if (jsonData != null && jsonData.people != null) {
                     var temp = {
                         id: jsonData.people[0]['id'],
                         name: jsonData.people[0]['fullName'],
@@ -33,7 +33,6 @@ class Players extends Component {
                         birthCity: jsonData.people[0]['birthCity']
                     };
                     this.setState({ player: temp });
-
                 }
                 console.log(this.state.player);
                 setTimeout(() => this.setState({ isLoading: false }), 500);

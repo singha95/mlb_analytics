@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/cards.css';
+import background from "../styles/2753315.jpg";
 
 
 class Rosters extends Component {
@@ -58,7 +59,7 @@ class Rosters extends Component {
         }
 
         return (
-            <div style={{ backgroundColor: "black", height: "100%", minHeight:"100vh", position:"relative"}}>
+            <div className="Background" style={{position:"relative"}}>
                 <div class="input-group mb-3">
                     <input type="text" class="form-control" placeholder="Enter Team Name..." value={this.state.search}
                         onChange={this.updateSearch.bind(this)} />

@@ -1,16 +1,29 @@
 div.MainPage{  
     margin-left: 0px;
     margin-top: 0px; 
+    padding-top: 20vh;
     overflow-y: hidden;
     height: calc(100% - 56px);
     width: 100%;
     position: absolute;
-    background-image: url('rogers1.jpg');
+    background-image: url('2753315.jpg');
     background-color: white;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: 30% 30%;
+    text-align: center
 }
+
+div.Background { 
+    background-image: url('2753315.jpg');
+    background-color: white;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 30% 30%;
+    height: 100%;
+    min-height:100vh;
+}
+
 div.Selection { 
     width: 50% ; 
     margin-left: 25%;

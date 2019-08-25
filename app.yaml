@@ -12,7 +12,6 @@
 # limitations under the License.
 #
 # [START runtime]
-env: flex
 manual_scaling:
   instances: 5
 runtime: nodejs10
