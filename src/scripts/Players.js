@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 
-
 class Players extends Component {
 
     constructor(props) {
@@ -8,7 +7,12 @@ class Players extends Component {
         this.state = {
             search: "",
             playerId: this.props.location.pathname.split("/")[2],
-            player: {}
+            player: {},
+            stats: [{ stats: {} }],
+            isLoading: true,
+            allowed: ["caughtStealing", "gamesPlayed",
+                "groundOuts", "hits", "homeRuns", "numberOfPitches",
+                "runs", "stolenBasePercentage", "strikeOuts"]
         };
     }
 
@@ -20,7 +24,7 @@ class Players extends Component {
         fetch(url)
             .then(response => response.json())
             .then(jsonData => {
-                //add the jsonData to the arrays of teams and details 
+                //Parse player details and save to object state 
                 if (jsonData != null && jsonData.people != null) {
                     var temp = {
                         Id: jsonData.people[0]['id'],
@@ -32,8 +36,23 @@ class Players extends Component {
                         Weight: jsonData.people[0]['weight']
                     };
                     this.setState({ player: temp });
+
+                    //Parse player stats and store in state 
+                    temp = [];
+
+                    var raw = {};
+                    for (var i in jsonData.people[0].stats[1].splits) {
+                        raw = jsonData.people[0].stats[1].splits[i].stat;
+                        var split = {
+                            year: jsonData.people[0].stats[1].splits[i].season,
+                        }
+                        for (var item of this.state.allowed) {
+                            split[item] = raw[item];
+                        }
+                        temp.push(split)
+                    }
+                    this.setState({ stats: temp });
                 }
-                console.log(this.state.player);
                 setTimeout(() => this.setState({ isLoading: false }), 500);
             });
     }
@@ -43,8 +62,8 @@ class Players extends Component {
         return (
             <div style={{ backgroundColor: "white", height: "100%", minHeight: "100vh" }}>
                 <div className="container" style={{ margin: "0px", height: "100%" }}>
-                    <div className="row" style={{}}>
-                        <img alt={this.state.playerId}
+                    <div className="row">
+                        <img alt={this.state.player.Id}
                             src={"https://securea.mlb.com/mlb/images/players/head_shot/" + this.state.playerId + ".jpg"}
                             className="playerProfile" />
                         <div className="playerDetails">
@@ -59,9 +78,30 @@ class Players extends Component {
                                 </tbody>
                             </table>
                         </div>
-
+                        <table class="table table-dark stats">
+                            <thead>
+                                <tr>
+                                    {Object.keys(this.state.stats[0]).map((key) => {
+                                        return <th scope="col" key={key}>{key}</th>
+                                    })}
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {this.state.stats.map((key) => {
+                                    return <tr>
+                                        <th scope="row" key={key.year}>
+                                            {key.year}
+                                        </th>
+                                        {this.state.allowed.map((item) => {
+                                            return <td>
+                                                {key[item]}
+                                            </td>
+                                        })}
+                                    </tr>
+                                })}
+                            </tbody>
+                        </table>
                     </div>
-
                 </div>
             </div>
 

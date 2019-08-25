@@ -29,7 +29,6 @@ class Teams extends Component {
                 //add the jsonData to the arrays of teams and details 
                 if (jsonData != null && jsonData.teams != null) {
                     for (let i = 0; i < jsonData.teams.length; i++) {
-                        console.log(jsonData.teams[i]['id']);
                         var temp = {
                             id: jsonData.teams[i]['id'],
                             name: jsonData.teams[i]['name'],
