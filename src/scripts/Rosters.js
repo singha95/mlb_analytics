@@ -1,10 +1,16 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/cards.css';
+import "../styles/animate.css"; 
 
 
 class Rosters extends Component {
-
+    /**
+     * A page that displays each of the players on the team. Data is fetched from: 
+     * https://statsapi.mlb.com/api/v1/teams/<teamId>/roster 
+     * 
+     * @param {*} props PATHNAME - used to determine which team roster to display
+     */
 
     constructor(props) {
         super(props);
@@ -56,7 +62,7 @@ class Rosters extends Component {
                 </div>
             )
         }
-
+        var count = 1; 
         return (
             <div className="Background" style={{position:"relative"}}>
                 <div className="input-group mb-3">
@@ -66,13 +72,15 @@ class Rosters extends Component {
                 <div className="container">
                     <div className="row myCards">
                         {rosterList.map((player) => {
-                            return <div key={player.id} className="card myCard">
+                            count += 0.1;
+                            console.log(count);
+                            return <div key={player.id} className="card myCard" style={{animation: "slideInLeft " +  count + "s"}}>
                                 <Link to={'/player/' + player.id} className="active item">
-                                    <div className="card-body">
+                                    <div className="card-body" style={{borderStyle: "solid", borderWidth: "2px", borderColor: "black"}}>
                                         <img alt={player.id}
                                             src={"https://securea.mlb.com/mlb/images/players/head_shot/" + player.id +
                                                 ".jpg"} />
-                                        <p className="card-text">{player.name}</p>
+                                        <p style={{color: "black", textAlign: "center"}}className="card-text">{player.name}</p>
                                     </div>
                                 </Link>
                             </div>

@@ -1,6 +1,12 @@
 import React, { Component } from 'react';
 
 class Players extends Component {
+    /**
+     * A page that represents the each of the players. Displays their stats along with any details about the players 
+     * bio. Such as age, number, weight, height. 
+     * 
+     * @param {*} props PATHNAME - used to determine which team roster to display
+     */
 
     constructor(props) {
         super(props);

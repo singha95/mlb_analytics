@@ -3,6 +3,11 @@ import { Link } from 'react-router-dom';
 
 
 class Teams extends Component {
+    /**
+     * A Page that displays each of the different MLB Teams. Each will link to 
+     * the respective roster for the team. Data is fetched from: 
+     * https://statsapi.mlb.com/api/v1/teams?sportId=1
+     */
 
     constructor() {
         super();
@@ -66,11 +71,12 @@ class Teams extends Component {
                     <div className="row">
                         {teamsList.map((team) => {
                             return <Link key={team.id} to={'/rosters/' + team.id} className="active item">
-                                <div className="card" style={{ width: "150px", height: "250px"}}>
+                                <div className="card" style={{ width: "150px", height: "250px", backgroundColor: "rgb(5, 9, 67)", 
+                                    borderStyle: "solid", borderWidth: "2px", borderColor: "rgb(197, 159, 10)", margin: "2px"}}>
                                     <div className="card-body">
                                         <img alt={team.id} 
                                             src={"https://www.mlbstatic.com/team-logos/" + team.id + ".svg"} />
-                                        <p className="card-text">{team.name}</p>
+                                        <p style={{color: "rgb(197, 159, 10)", textAlign: "center", bottom: "5px"}} className="card-text">{team.name}</p>
                                     </div>
                                 </div>
                             </Link>

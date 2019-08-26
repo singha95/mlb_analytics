@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
 class NavBar extends Component {
+    /**
+     * A static navbar to be displayed on all pages. Allows for easier navigation through all pages.
+     */
 
     constructor() {
         super();
