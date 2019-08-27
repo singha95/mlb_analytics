@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import RosterCard from './RosterCard.js'; 
 import '../styles/cards.css';
 import "../styles/animate.css"; 
 
@@ -66,7 +67,7 @@ class Rosters extends Component {
         return (
             <div className="Background" style={{position:"relative"}}>
                 <div className="input-group mb-3">
-                    <input type="text" className="form-control" placeholder="Enter Playrr Name..." value={this.state.search}
+                    <input type="text" className="form-control" placeholder="Enter Player Name..." value={this.state.search}
                         onChange={this.updateSearch.bind(this)} />
                 </div>
                 <div className="container">
@@ -76,12 +77,8 @@ class Rosters extends Component {
                             console.log(count);
                             return <div key={player.id} className="card myCard" style={{animation: "slideInLeft " +  count + "s"}}>
                                 <Link to={'/player/' + player.id} className="active item">
-                                    <div className="card-body" style={{borderStyle: "solid", borderWidth: "2px", borderColor: "black"}}>
-                                        <img alt={player.id}
-                                            src={"https://securea.mlb.com/mlb/images/players/head_shot/" + player.id +
-                                                ".jpg"} />
-                                        <p style={{color: "black", textAlign: "center"}}className="card-text">{player.name}</p>
-                                    </div>
+                                    <RosterCard src={"https://securea.mlb.com/mlb/images/players/head_shot/" + player.id + ".jpg"}
+                                        player={player}/>
                                 </Link>
                             </div>
                         })}
