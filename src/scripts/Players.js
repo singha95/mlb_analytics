@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 
 class Players extends Component {
     /**
-     * A page that represents the each of the players. Displays their stats along with any details about the players 
+     * A page that represents the each of the players. Displays their stats along 
+     * with any details about the players 
      * bio. Such as age, number, weight, height. 
      * 
      * @param {*} props PATHNAME - used to determine which team roster to display
@@ -66,16 +67,21 @@ class Players extends Component {
 
     render() {
         return (
-            <div style={{ backgroundColor: "white", height: "100%", minHeight: "100vh" }}>
-                <div className="container" style={{ margin: "0px", height: "100%" }}>
+            <div style={{ backgroundColor: "white", height: "100%", 
+                        minHeight: "100vh" }}>
+                <div className="container" 
+                    style={{ margin: "0px", height: "100%" }}>
                     <div className="row">
                         <img alt={this.state.player.Id}
-                            src={"https://securea.mlb.com/mlb/images/players/head_shot/" + this.state.playerId + ".jpg"}
+                            src={"https://securea.mlb.com/mlb/" + 
+                            "images/players/head_shot/" + this.state.playerId + 
+                            ".jpg"}
                             className="playerProfile" />
                         <div className="playerDetails">
                             <table className="table">
                                 <tbody>
-                                    {Object.keys(this.state.player).map((key) => {
+                                    {Object.keys(this.state.player).map((key) => 
+                                    {
                                         return <tr key={key}>
                                             <th>{key}</th>
                                             <td>{this.state.player[key]}</td>
@@ -87,8 +93,11 @@ class Players extends Component {
                         <table class="table table-dark stats">
                             <thead>
                                 <tr>
-                                    {Object.keys(this.state.stats[0]).map((key) => {
-                                        return <th scope="col" key={key}>{key}</th>
+                                    {Object.keys(this.state.stats[0]).map(
+                                    (key) => {
+                                        return <th scope="col" key={key}>
+                                                {key}
+                                            </th>
                                     })}
                                 </tr>
                             </thead>

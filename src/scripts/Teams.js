@@ -50,33 +50,49 @@ class Teams extends Component {
     render() {
         let teamsList = this.state.teams.filter(
             (team) => {
-                return team.name.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1;
+                return team.name.toLowerCase().indexOf(
+                    this.state.search.toLowerCase()
+                ) !== -1;
             }
         );
         if (this.state.isLoading) {
             return (
                 <div className="d-flex align-items-center">
                     <strong>Loading...</strong>
-                    <div className="spinner-border ml-auto" role="status" aria-hidden="true"></div>
+                    <div className="spinner-border ml-auto" 
+                        role="status" aria-hidden="true"/>
                 </div>
             )
         }
         return (
             <div className="Background">
                 <div className="input-group mb-3">
-                    <input type="text" className="form-control" placeholder="Enter Team Name..." value={this.state.search} 
+                    <input type="text" className="form-control" 
+                        placeholder="Enter Team Name..." 
+                        value={this.state.search} 
                         onChange={this.updateSearch.bind(this)} />
                 </div>
                 <div className="container">
                     <div className="row">
                         {teamsList.map((team) => {
-                            return <Link key={team.id} to={'/rosters/' + team.id} className="active item">
-                                <div className="card" style={{ width: "150px", height: "250px", backgroundColor: "rgb(5, 9, 67)", 
-                                    borderStyle: "solid", borderWidth: "2px", borderColor: "rgb(197, 159, 10)", margin: "2px"}}>
+                            return <Link key={team.id} 
+                                to={'/rosters/' + team.id} 
+                                className="active item">
+                                <div className="card" 
+                                    style={{ width: "150px", height: "250px", 
+                                    backgroundColor: "rgb(5, 9, 67)", 
+                                    borderStyle: "solid", borderWidth: "2px", 
+                                    borderColor: "rgb(197, 159, 10)", 
+                                    margin: "2px"}}>
                                     <div className="card-body">
                                         <img alt={team.id} 
-                                            src={"https://www.mlbstatic.com/team-logos/" + team.id + ".svg"} />
-                                        <p style={{color: "rgb(197, 159, 10)", textAlign: "center", bottom: "5px"}} className="card-text">{team.name}</p>
+                                            src={"https://www.mlbstatic.com/" + 
+                                            "team-logos/" + team.id + ".svg"} />
+                                        <p style={{color: "rgb(197, 159, 10)", 
+                                            textAlign: "center", bottom: "5px"}} 
+                                            className="card-text">
+                                            {team.name}
+                                        </p>
                                     </div>
                                 </div>
                             </Link>

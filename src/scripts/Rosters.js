@@ -28,7 +28,8 @@ class Rosters extends Component {
     }
 
     componentDidMount() {
-        var url = "https://statsapi.mlb.com/api/v1/teams/" + this.state.teamId + "/roster"
+        var url = "https://statsapi.mlb.com/api/v1/teams/" + 
+            this.state.teamId + "/roster"
 
         //Use fetch to get the spreadsheet data
         fetch(url)
@@ -52,14 +53,17 @@ class Rosters extends Component {
     render() {
         let rosterList = this.state.players.filter(
             (player) => {
-                return player.name.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1;
+                return player.name.toLowerCase().indexOf(
+                    this.state.search.toLowerCase()
+                ) !== -1;
             }
         );
         if (this.state.isLoading) {
             return (
                 <div className="d-flex align-items-center">
                     <strong>Loading...</strong>
-                    <div className="spinner-border ml-auto" role="status" aria-hidden="true"></div>
+                    <div className="spinner-border ml-auto" role="status" 
+                        aria-hidden="true"/>
                 </div>
             )
         }
@@ -67,7 +71,9 @@ class Rosters extends Component {
         return (
             <div className="Background" style={{position:"relative"}}>
                 <div className="input-group mb-3">
-                    <input type="text" className="form-control" placeholder="Enter Player Name..." value={this.state.search}
+                    <input type="text" className="form-control" 
+                        placeholder="Enter Player Name..." 
+                        value={this.state.search}
                         onChange={this.updateSearch.bind(this)} />
                 </div>
                 <div className="container">
@@ -75,9 +81,16 @@ class Rosters extends Component {
                         {rosterList.map((player) => {
                             count += 0.1;
                             console.log(count);
-                            return <div key={player.id} className="card myCard" style={{animation: "slideInLeft " +  count + "s"}}>
-                                <Link to={'/player/' + player.id} className="active item">
-                                    <RosterCard src={"https://securea.mlb.com/mlb/images/players/head_shot/" + player.id + ".jpg"}
+                            return <div key={player.id} 
+                                className="card myCard" 
+                                style={{animation: "slideInLeft " +  
+                                    count + "s"}}>
+                                <Link to={'/player/' + player.id} 
+                                    className="active item">
+                                    <RosterCard 
+                                        src={"https://securea.mlb.com/mlb/" + 
+                                            "images/players/head_shot/" + 
+                                            player.id + ".jpg"}
                                         player={player}/>
                                 </Link>
                             </div>
