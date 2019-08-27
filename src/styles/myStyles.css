@@ -17,10 +17,14 @@ div.MainPage{
 div.Background { 
     background-image: url('2753315.jpg');
     background-color: white;
+    position: fixed;
+    overflow-y: scroll;
+    background-position: center;
+    background-size: fill;
     background-repeat: no-repeat;
-    background-size: cover;
     background-position: 30% 30%;
     height: 100%;
+    width: 100%;
     min-height:100vh;
 }
 
@@ -51,10 +55,14 @@ div.MainPage img {
     max-width: 600px;
 }
 .playerDetails { 
+    top: 10px;
     position: absolute;
     left: 300px;
-    height:100vh;
     width: 70%;
+    background-color: white;
+    border-radius: 8px;
+    border: 3px solid black;
+    padding: 5px;
 }
 
 .stats { 

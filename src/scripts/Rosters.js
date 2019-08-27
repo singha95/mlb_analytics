@@ -69,7 +69,7 @@ class Rosters extends Component {
         }
         var count = 1; 
         return (
-            <div className="Background" style={{position:"relative"}}>
+            <div className="Background">
                 <div className="input-group mb-3">
                     <input type="text" className="form-control" 
                         placeholder="Enter Player Name..." 

@@ -67,10 +67,9 @@ class Players extends Component {
 
     render() {
         return (
-            <div style={{ backgroundColor: "white", height: "100%", 
-                        minHeight: "100vh" }}>
+            <div className="Background">
                 <div className="container" 
-                    style={{ margin: "0px", height: "100%" }}>
+                    style={{ margin: "0px", height: "100%"}}>
                     <div className="row">
                         <img alt={this.state.player.Id}
                             src={"https://securea.mlb.com/mlb/" + 
