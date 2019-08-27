@@ -17,8 +17,6 @@ div.MainPage{
 div.Background { 
     background-image: url('2753315.jpg');
     background-color: white;
-    position: fixed;
-    overflow-y: scroll;
     background-position: center;
     background-size: fill;
     background-repeat: no-repeat;
