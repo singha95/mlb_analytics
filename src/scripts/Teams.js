@@ -78,12 +78,7 @@ class Teams extends Component {
                             return <Link key={team.id} 
                                 to={'/rosters/' + team.id} 
                                 className="active item">
-                                <div className="card" 
-                                    style={{ width: "150px", height: "250px", 
-                                    backgroundColor: "rgb(5, 9, 67)", 
-                                    borderStyle: "solid", borderWidth: "2px", 
-                                    borderColor: "rgb(197, 159, 10)", 
-                                    margin: "2px"}}>
+                                <div className="card teamCard">
                                     <div className="card-body">
                                         <img alt={team.id} 
                                             src={"https://www.mlbstatic.com/" + 

@@ -41,6 +41,16 @@ div.MainPage img {
     margin-bottom: 20px;
 }
 
+.teamCard{ 
+    width: 150px; 
+    height: 250px; 
+    background-color: rgb(5, 9, 67);
+    border-style: solid; 
+    border-width: 2px;
+    border-color: rgb(197, 159, 10);
+    margin: 2px;
+}
+
 .playerProfile { 
     object-fit: cover;
     position: relative;
@@ -72,6 +82,11 @@ div.MainPage img {
 
 @media only screen and (max-width: 900px) {
 
+    .teamCard{ 
+        width: 150px; 
+        left: 20px;
+    }
+
     .playerProfile { 
         width: 50%;
         height: 50%;
@@ -92,6 +107,11 @@ div.MainPage img {
         width: 400px; 
         position: fixed;
         overflow: scroll;
+    }
+
+    div.Selection { 
+        width: 80% ; 
+        margin-left: 10%;
     }
 
 }

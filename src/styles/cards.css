@@ -34,6 +34,7 @@
         box-shadow: 3px 3px 12px 2px rgba(black, 0.6);
         transition: 0.2s;
         margin-left: 0rem;
+        left: 50px;
     }
 
     .myCard img{ 
