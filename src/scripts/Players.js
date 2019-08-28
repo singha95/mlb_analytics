@@ -34,13 +34,13 @@ class Players extends Component {
                 //Parse player details and save to object state 
                 if (jsonData != null && jsonData.people != null) {
                     var temp = {
-                        Id: jsonData.people[0]['id'],
                         Name: jsonData.people[0]['fullName'],
                         Number: jsonData.people[0]['primaryNumber'],
                         Age: jsonData.people[0]['currentAge'],
                         "Birth Country": jsonData.people[0]['birthCountry'],
                         Height: jsonData.people[0]['height'],
-                        Weight: jsonData.people[0]['weight']
+                        Weight: jsonData.people[0]['weight'], 
+                        "Debut Date": jsonData.people[0]["mlbDebutDate"]
                     };
                     this.setState({ player: temp });
 
@@ -89,7 +89,7 @@ class Players extends Component {
                                 </tbody>
                             </table>
                         </div>
-                        <table class="table table-dark stats">
+                        <table className="table table-dark stats">
                             <thead>
                                 <tr>
                                     {Object.keys(this.state.stats[0]).map(
