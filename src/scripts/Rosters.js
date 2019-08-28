@@ -78,7 +78,7 @@ class Rosters extends Component {
                         value={this.state.search}
                         onChange={this.updateSearch.bind(this)} />
                 </div>
-                <div className="container" style={{left: "10px"}}>
+                <div className="container">
                     <div className="row">
                         {rosterList.map((player) => {
                             count += 0.1;

@@ -68,7 +68,7 @@ class Players extends Component {
     render() {
         var count = 0;
         return (
-            <div className="Background">
+            <div>
                 <div className="container" 
                     style={{ margin: "0px", height: "100%"}}>
                     <div className="row">
