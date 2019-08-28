@@ -66,6 +66,7 @@ class Players extends Component {
 
 
     render() {
+        var count = 0;
         return (
             <div className="Background">
                 <div className="container" 
@@ -102,12 +103,13 @@ class Players extends Component {
                             </thead>
                             <tbody>
                                 {this.state.stats.map((key) => {
-                                    return <tr>
+                                    count += 1; 
+                                    return <tr key={count}>
                                         <th scope="row" key={key.year}>
                                             {key.year}
                                         </th>
                                         {this.state.allowed.map((item) => {
-                                            return <td>
+                                            return <td key={item}>
                                                 {key[item]}
                                             </td>
                                         })}

@@ -7,7 +7,7 @@ div.MainPage{
     width: 100%;
     position: absolute;
     background-image: url('2753315.jpg');
-    background-color: white;
+    background-color: #00003f;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: 30% 30%;
@@ -16,23 +16,14 @@ div.MainPage{
 
 div.Background { 
     background-image: url('2753315.jpg');
-    background-color: white;
-    background-position: center;
+    background-color: #00003f;
     background-size: fill;
     background-position: 30% 30%;
-    height: ;
+    height: 110%;
     width: 100%;
     min-height:100vh;
 }
 
-div.Selection { 
-    width: 50% ; 
-    margin-left: 25%;
-}
-
-div.MainPage button{ 
-    background-color: white;
-}
 
 div.MainPage img { 
     width: 50% ; 
@@ -64,7 +55,9 @@ div.MainPage img {
 
 .stats { 
     left: 10vw; 
+    top: 30px;
     position: relative;
+    margin-bottom: 0px;
 }
 
 
