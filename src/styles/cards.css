@@ -7,22 +7,12 @@
     margin-left: -5rem;
 }
 
-.cardDetails { 
-    display: none;
-}
-
 .myCard:hover { 
     z-index: 5;
     transform: translateX(20px); 
     transform: translateY(-20px); 
 }
 
-.myCard:hover  + .cardDetails{ 
-    display: block;
-    margin-left: 15%;
-    height: 200px;
-    background: red;
-}
 
 @media only screen and (max-width: 900px) {
 

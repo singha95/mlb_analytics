@@ -2,11 +2,12 @@ import React, { Component } from 'react';
 
 class Players extends Component {
     /**
-     * A page that represents the each of the players. Displays their stats along 
-     * with any details about the players 
-     * bio. Such as age, number, weight, height. 
+     * A page that represents the each of the players. Displays their stats 
+     * along with any details about the players bio. Such as 
+     * age, number, weight, height. 
      * 
-     * @param {*} props PATHNAME - used to determine which team roster to display
+     * @param {*} props PATHNAME - used to determine which team roster to 
+     * display
      */
 
     constructor(props) {
@@ -32,8 +33,10 @@ class Players extends Component {
         window.addEventListener("resize", this.resize.bind(this));
         this.resize();
 
-        var url = "https://statsapi.mlb.com/api/v1/people/" + this.state.playerId +
-            "?hydrate=stats(group=[hitting,pitching,fielding],type=[yearByYear])";
+        var url = "https://statsapi.mlb.com/api/v1/people/" + 
+            this.state.playerId +
+            "?hydrate=stats(group=[hitting,pitching,fielding]," +
+            "type=[yearByYear])";
 
         //Use fetch to get the spreadsheet data
         fetch(url)
@@ -93,7 +96,8 @@ class Players extends Component {
                 <div className="container" 
                     style={{ margin: "0px", height: "100%"}}>
                     <div className="row">
-                        <button className="showStats" onClick={this.toggleStats.bind(this)}>
+                        <button className="showStats" 
+                            onClick={this.toggleStats.bind(this)}>
                             Show Stats
                         </button>
                         <img alt={this.state.player.Id}
@@ -114,7 +118,8 @@ class Players extends Component {
                                 </tbody>
                             </table>
                         </div>
-                        <table className="table table-dark stats" style={{display: statsDisplay}}>
+                        <table className="table table-dark stats" 
+                            style={{display: statsDisplay}}>
                             <thead>
                                 <tr>
                                     {Object.keys(this.state.stats[0]).map(

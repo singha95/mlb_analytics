@@ -25,8 +25,7 @@ class RosterCard extends Component {
         borderStyle: "solid",
         borderWidth: "2px", borderColor: "black"
       }}>
-        <ReactImageAppear src={this.props.src}
-          animation="fadeIn" animationDuration="0.1s" showLoader={false} />
+        <ReactImageAppear src={this.props.src} showLoader={false} />
         <p style={{ color: "black", textAlign: "center" }}
           className="card-text">
           {this.props.player.name}
