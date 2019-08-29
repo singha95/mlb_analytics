@@ -61,6 +61,7 @@ div.MainPage img {
     padding: 5px;
     max-width: 600px;
 }
+
 .playerDetails { 
     top: 60px;
     position: absolute;
@@ -88,16 +89,17 @@ div.MainPage img {
     }
 
     .playerProfile { 
-        width: 50%;
+        top: 50px; 
+        width: 40%;
         height: 50%;
         position: relative;
-        left: 50%; 
+        left: 30%; 
     }
 
     .playerDetails { 
         position: relative;
-        left: 25%;
-        width: 100%;
+        left: 20px;
+        width: 90vw;
         height: 100%;
     }
 
@@ -107,6 +109,8 @@ div.MainPage img {
         width: 400px; 
         position: fixed;
         overflow: scroll;
+        display: none;
+        
     }
 
     div.Selection { 
