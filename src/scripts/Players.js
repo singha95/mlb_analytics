@@ -19,11 +19,19 @@ class Players extends Component {
             isLoading: true,
             allowed: ["caughtStealing", "gamesPlayed",
                 "groundOuts", "hits", "homeRuns", "numberOfPitches",
-                "runs", "stolenBasePercentage", "strikeOuts"]
+                "runs", "stolenBasePercentage", "strikeOuts"],
+            showStats: false
         };
     }
 
+    toggleStats(e){ 
+        this.setState({showStats: !this.state.showStats}); 
+    }
+
     componentDidMount() {
+        window.addEventListener("resize", this.resize.bind(this));
+        this.resize();
+
         var url = "https://statsapi.mlb.com/api/v1/people/" + this.state.playerId +
             "?hydrate=stats(group=[hitting,pitching,fielding],type=[yearByYear])";
 
@@ -64,14 +72,30 @@ class Players extends Component {
             });
     }
 
+    resize() {
+        let currentHideNav = (window.innerWidth <= 900);
+        if (currentHideNav !== this.state.hideNav) {
+            this.setState({hideNav: currentHideNav});
+        }
+    }
+
 
     render() {
         var count = 0;
+        var statsDisplay = "none";
+        if (this.state.showStats | window.innerWidth >= 900){
+            console.log(window.innerWidth);
+            statsDisplay = "block";
+        }
+
         return (
             <div>
                 <div className="container" 
                     style={{ margin: "0px", height: "100%"}}>
                     <div className="row">
+                        <button className="showStats" onClick={this.toggleStats.bind(this)}>
+                            Show Stats
+                        </button>
                         <img alt={this.state.player.Id}
                             src={"https://securea.mlb.com/mlb/" + 
                             "images/players/head_shot/" + this.state.playerId + 
@@ -90,7 +114,7 @@ class Players extends Component {
                                 </tbody>
                             </table>
                         </div>
-                        <table className="table table-dark stats">
+                        <table className="table table-dark stats" style={{display: statsDisplay}}>
                             <thead>
                                 <tr>
                                     {Object.keys(this.state.stats[0]).map(

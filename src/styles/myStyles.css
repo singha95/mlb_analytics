@@ -73,6 +73,13 @@ div.MainPage img {
     padding: 5px;
 }
 
+.showStats{ 
+    display: none;
+    position: fixed;
+    z-index: 5;
+    left: 20px;
+}
+
 .stats { 
     left: 10vw; 
     top: 30px;
@@ -103,14 +110,16 @@ div.MainPage img {
         height: 100%;
     }
 
+    .showStats{ 
+        display: block; 
+    }
+
     .stats { 
         left: 10px; 
-        top: 70px;
-        width: 400px; 
+        top: 100px;
+        width: 90vw; 
+        height: 80vh;
         position: fixed;
-        overflow: scroll;
-        display: none;
-        
     }
 
     div.Selection { 
