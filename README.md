@@ -1,6 +1,10 @@
 # JaysAnalytics
 A web app to display player and team statistics for MLB players and teams. 
 
+The following resources were used: 
+- http://daneden.me/animate
+- https://statsapi.mlb.com/
+
 # Prerequisites
 - Node.JS 
 - React (router-dom, image-appear)
@@ -8,8 +12,8 @@ A web app to display player and team statistics for MLB players and teams.
 
 # Start Up 
 1. From node.js terminal run the following commands: 
-    npm install 
-    npm start 
+    1. npm install 
+    2. npm start 
 
 2. The once started the app will be available in a localhost url. By default it
 is http://localhost:3000 
