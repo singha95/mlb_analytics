@@ -96,7 +96,7 @@ class Players extends Component {
                 <div className="container" 
                     style={{ margin: "0px", height: "100%"}}>
                     <div className="row">
-                        <button className="showStats" 
+                        <button type="button" class="btn btn-dark showStats" 
                             onClick={this.toggleStats.bind(this)}>
                             Show Stats
                         </button>
