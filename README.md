@@ -1,4 +1,4 @@
-# JaysAnalytics
+# MLB Analytics
 A web app to display player and team statistics for MLB players and teams. 
 
 The following resources were used: 
