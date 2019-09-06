@@ -87,7 +87,6 @@ class Players extends Component {
         var count = 0;
         var statsDisplay = "none";
         if (this.state.showStats | window.innerWidth >= 900){
-            console.log(window.innerWidth);
             statsDisplay = "block";
         }
 
@@ -96,7 +95,7 @@ class Players extends Component {
                 <div className="container" 
                     style={{ margin: "0px", height: "100%"}}>
                     <div className="row">
-                        <button type="button" class="btn btn-dark showStats" 
+                        <button type="button" className="btn btn-dark showStats" 
                             onClick={this.toggleStats.bind(this)}>
                             Show Stats
                         </button>
