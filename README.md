@@ -18,6 +18,6 @@ The following resources were used:
 2. The once started the app will be available in a localhost url. By default it
 is http://localhost:3000 
 
-3. A version of the app, deployed using google cloud platform, is also available 
-at the following url: https://mlb-analytics.appspot.com/
+3. A version of the app, deployed using Heroku, is also available 
+at the following url: https://mlb-player-analytics.herokuapp.com
 
